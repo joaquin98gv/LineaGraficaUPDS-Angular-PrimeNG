@@ -1,0 +1,46 @@
+<div id="sidebar">
+    <div class="pt-3">
+        <div class="perfil-foto" style="background-image: url('https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?k=20&m=1223671392&s=612x612&w=0&h=lGpj2vWAI3WUT1JeJWm1PRoHT3V15_1pdcTn2szdwQ0=');" alt="Foto"></div>
+        <p class="perfil-nombre mt-2 mb-0 lh-1">Joaquin Gonzalez Villaescusa</p>
+        <p class="perfil-detalle mt-1 mb-0 text-overflow">joaquin.gonzalez@upds.edu.bo</p>
+        <p class="perfil-detalle text-center text-overflow my-0">Desarrollador</p>
+    </div>
+    
+    <ul class="list-unstyled components">
+        <li routerLinkActive="active">
+            <a href="#" routerLink="/home">
+                <i class="pi pi-home"></i>
+                Dashboard
+            </a>
+        </li>
+        <li>
+            <a href="#" routerLink="/contact">
+                <i class="pi pi-envelope"></i>
+                Contact
+            </a>
+        </li>
+        <li routerLinkActive="active" *ngFor="let menu of menus">
+            <a href="#" [routerLink]="menu.ubicacion" class="text-overflow">
+                <i class="fa-regular {{menu.icono}}"></i>
+                {{menu.titulo}}
+            </a>
+        </li>
+    </ul>
+
+    <section class="section-botton">
+        <div class="full-width">
+            <p-selectButton [options]="modeOptions" [(ngModel)]="modoOscuro" (onChange)="cambiarModo()">
+                <ng-template let-item>
+                    <i [class]="item.icon"></i>
+                </ng-template>
+            </p-selectButton>
+        </div>
+        <p-divider></p-divider>
+        <img src="https://portal.upds.edu.bo/index/images/isologo.png" class="isologo">
+        <div class="detail-version">
+            <p class="mb-0">&copy; 2022 - V1.0.3 DT</p>
+            <p>Design Template</p>
+        </div>
+        <button pButton label="Cerrar sesión" icon="pi pi-sign-out" class="btn-logout p-button-danger"></button>
+    </section>
+</div>
