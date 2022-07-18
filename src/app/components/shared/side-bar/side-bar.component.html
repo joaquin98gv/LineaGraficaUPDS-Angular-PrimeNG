@@ -19,6 +19,11 @@
                 Contact
             </a>
         </li>
+        <li routerLinkActive="active">
+            <a href="#" routerLink="/button">
+                Button
+            </a>
+        </li>
         <li routerLinkActive="active" *ngFor="let menu of menus">
             <a href="#" [routerLink]="menu.ubicacion" class="text-overflow">
                 <i class="fa-regular {{menu.icono}}"></i>
@@ -29,9 +34,9 @@
 
     <section class="section-botton">
         <div class="full-width">
-            <p-selectButton [options]="modeOptions" [(ngModel)]="modoOscuro" (onChange)="cambiarModo()">
+            <p-selectButton [options]="modeOptions" [(ngModel)]="theme" (onChange)="cambiarModo()">
                 <ng-template let-item>
-                    <i [class]="item.icon"></i>
+                    <i [class]="item.icon" class="w-full"></i>
                 </ng-template>
             </p-selectButton>
         </div>

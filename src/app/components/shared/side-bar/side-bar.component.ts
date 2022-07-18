@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { MainService } from 'src/app/services/main.service';
+import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
   selector: 'app-side-bar',
@@ -12,18 +13,16 @@ export class SideBarComponent implements OnInit {
   @Input() menus: any[] = [];
   @Output() aplicarCambios: EventEmitter<void> = new EventEmitter<void>()
   @Output() cambiarModoEvent: EventEmitter<void> = new EventEmitter<void>()
-
-  tema: string = 'light';
-  modoOscuro = false;
+  theme = 'light-indigo';
 
   funcionario: any = {};
 
   modeOptions = [
-    { value: false, icon: 'pi pi-sun', justify: 'Center' },
-    { value: true, icon: 'pi pi-moon', justify: 'Center' },
+    { value: 'light-indigo', icon: 'pi pi-sun', justify: 'Center' },
+    { value: 'dark-indigo', icon: 'pi pi-moon', justify: 'Center' },
   ];
 
-  constructor(private router: Router, private mainS: MainService) {
+  constructor(private router: Router, private mainS: MainService, private themeService: ThemeService) {
     // this.getPerfil().then((resp: any) => {
     //   if(resp == "error") this.logOut();
     // });
@@ -31,9 +30,9 @@ export class SideBarComponent implements OnInit {
 
   ngOnInit(): void {
     if (localStorage.getItem('theme') == 'dark') {
-      this.tema = 'dark';
-      this.modoOscuro = true;
+      this.theme = 'dark-indigo';
     }
+    this.cambiarModo();
   }
   
   toggleOff(){
@@ -46,9 +45,7 @@ export class SideBarComponent implements OnInit {
   }
 
   cambiarModo(){
-    // this.aplicarCambios.emit();
-    this.modoOscuro = this.tema == 'light' ? false : true;
-    this.mainS.modoOscuro.next(this.modoOscuro);
+    this.themeService.switchTheme(this.theme);
   }
 
   async getPerfil() {

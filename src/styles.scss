@@ -1,19 +1,22 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
-@import "../node_modules/primeng/resources/themes/md-light-indigo/theme.css";
+@import "primeng/resources/primeng.min.css";
+@import "primeflex/primeflex.css";
+@import "primeicons/primeicons.css";
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #f9f9f9 !important;
   margin: 0;
 }
 
 .app-background {
-  background-color: #f9f9f9 !important;
+  background-color: #f9f9f9;
 }
 
 .dark-theme {
-
+    .app-background {
+      background-color: #121212 !important;
+    }
     p, h1, h2, h3, h4, h5, h6 {
       color: #fff;
     }

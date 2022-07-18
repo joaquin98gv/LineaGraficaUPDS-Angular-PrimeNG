@@ -29,10 +29,17 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/primeicons/primeicons.css",
-              "node_modules/primeng/resources/themes/md-light-indigo/theme.css",
-              "node_modules/primeng/resources/primeng.min.css",
-              "node_modules/primeflex/primeflex.css"
+              {
+                "input": "src/assets/styles/theme-light-indigo.scss",
+                "bundleName": "light-indigo",
+                "inject": false
+              },
+              {
+                "input": "src/assets/styles/theme-dark-indigo.scss",
+                "bundleName": "dark-indigo",
+                "inject": false
+              }
+              
             ],
             "scripts": []
           },

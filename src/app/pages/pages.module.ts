@@ -12,12 +12,14 @@ import {ButtonModule} from 'primeng/button';
 import {SelectButtonModule} from 'primeng/selectbutton';
 import {DividerModule} from 'primeng/divider';
 import { HomeComponent } from './home/home.component';
+import { ButtonComponent } from './button/button.component';
 
 @NgModule({
   declarations: [
     PagesComponent,
     SideBarComponent,
-    HomeComponent
+    HomeComponent,
+    ButtonComponent
   ],
   imports: [
     CommonModule,

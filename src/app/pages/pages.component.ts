@@ -12,11 +12,10 @@ export class PagesComponent implements OnInit {
   userName = "Joaquin.Gonzalez";
   modoOscuro = false;
   darkClassName = 'dark-theme';
-  quiereBuscar = false;
-  search = '';
-  bread = '';
+
   appReady = false;
   menus: any[] = [];
+  
   constructor(private mainS: MainService) {
       mainS.modoOscuro.subscribe((resp: any) => {
         this.modoOscuro = resp;
