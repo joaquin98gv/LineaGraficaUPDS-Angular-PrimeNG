@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
+  selector: 'app-button',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss']
 })
@@ -12,8 +13,11 @@ export class ButtonComponent implements OnInit {
     false,
     false,
     false
-  ]
-  constructor(private primengConfig: PrimeNGConfig) { }
+  ];
+  
+  constructor(private primengConfig: PrimeNGConfig) {
+
+  }
 
   ngOnInit(): void {
     this.primengConfig.ripple = true;
