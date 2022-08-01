@@ -15,7 +15,7 @@ export class MainService {
   darkClassName = 'dark-theme';
   //Permisos
   public interfaces = [];
-  
+
   cad: Subject<string> = new Subject<string>();
   constructor(private http: HttpClient) {
     // this.toastr.success('Hello world!', 'Toastr fun!');
@@ -23,57 +23,43 @@ export class MainService {
 
   public getCabecera() {
     const headers = new HttpHeaders()
-          .append('Authorization',
-          'Bearer ' + (localStorage.getItem('Authorization') == null ? '' : localStorage.getItem('Authorization')));
+      .append('Authorization',
+        'Bearer ' + (localStorage.getItem('Authorization') == null ? '' : localStorage.getItem('Authorization')));
     return headers;
   }
 
   //! ---------------Funciones que hacen peticiones--------------- //
   // [GET]
-  private async request(url: string){
+  private async request(url: string) {
     const headers = this.getCabecera();
-    let ans = await new Promise((resolve)=>{
-      this.http.get(url, {headers, observe:'response'}).subscribe({
+    let ans = await new Promise((resolve, reject) => {
+      this.http.get(url, { headers, observe: 'response' }).subscribe({
         next: (response) => {
-          //Validar statuscode
           console.log(response);
-
-          //La respuesta del servidor
           resolve(response.body);
         },
-          //Si no hay respuesta (el servidor no responde o se perdio la conexion a internet)
-        error: () => {
-          // rejects(err);
-          resolve("error")
-        }
+        error: (err) => reject(err.message)
       })
-    });    
+    });
     return ans;
   }
 
   // [POST]
-  private async requestPost(url: string, obj: any = null){
+  private async requestPost(url: string, obj: any = null) {
     const headers = this.getCabecera();
-    let ans = await new Promise((resolve)=>{
-      this.http.post(url, obj, {headers, observe:'response'}).subscribe({
+    let ans = await new Promise((resolve, reject) => {
+      this.http.post(url, obj, { headers, observe: 'response' }).subscribe({
         next: (response) => {
-          //Validar statuscode
           console.log(response);
-
-          //La respuesta del servidor
           resolve(response.body);
         },
-          //Si no hay respuesta (el servidor no responde o se perdio la conexion a internet)
-        error: () => {
-          // rejects(err);
-          resolve("error")
-        }
+        error: (err) => reject(err.message)
       })
-    });    
+    });
     return ans;
   }
 
-  async getPerfil(){
+  async getPerfil() {
     let ans: any = await this.request(`${environment.urlAccess}Funcionarios`);
     return ans;
   }
