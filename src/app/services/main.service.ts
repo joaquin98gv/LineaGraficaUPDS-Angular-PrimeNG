@@ -30,7 +30,7 @@ export class MainService {
 
   //! ---------------Funciones que hacen peticiones--------------- //
   // [GET]
-  private async request(url: string) {
+  public async request(url: string) {
     const headers = this.getCabecera();
     let ans = await new Promise((resolve, reject) => {
       this.http.get(url, { headers, observe: 'response' }).subscribe({
@@ -45,7 +45,7 @@ export class MainService {
   }
 
   // [POST]
-  private async requestPost(url: string, obj: any = null) {
+  public async requestPost(url: string, obj: any = null) {
     const headers = this.getCabecera();
     let ans = await new Promise((resolve, reject) => {
       this.http.post(url, obj, { headers, observe: 'response' }).subscribe({

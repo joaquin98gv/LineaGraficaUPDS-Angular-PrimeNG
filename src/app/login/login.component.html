@@ -1,1 +1,35 @@
-<p>login works!</p>
+<div class="body-login">
+    <div class="contenedor">
+        <p-card class="box fadein">
+            <!-- <div class="title"></div> -->
+            <div>
+                <img src="https://portal.upds.edu.bo/index/images/isologo.png" alt="logo U" class="logo">
+                <h2 class="title">Welcome Back</h2>
+            </div>
+            <div>
+                <span class="p-float-label p-input-icon-left w-full mb-3 mt-2">
+                    <i class="pi pi-user"></i>
+                    <input type="text" pInputText  [(ngModel)]="user.username" id="user" class="w-full">         
+                    <label for="user">Username</label>
+                </span>
+                <span class="p-float-label p-input-icon-left w-full mb-3 mt-2">
+                    <i class="pi pi-key"></i>
+                    <input type="password" pInputText  [(ngModel)]="user.password" id="pass" class="w-full">         
+                    <label for="pass">Password</label>
+                </span>
+            </div>
+
+            <div class="flex align-items-center justify-content-between mb-4">
+                <div class="flex align-items-center">
+                    <p-checkbox id="rememberme" [binary]="true" [(ngModel)]="remember" styleClass="mr-2"></p-checkbox>
+                    <label for="rememberme" class="text-900">Remember me</label>
+                </div>
+                <a routerLink="/re-password" class="font-medium no-underline ml-2 text-primary text-right cursor-pointer">Forgot password?</a>
+            </div>
+
+            <div class="text-center mt-4">
+                <button pButton type="button" class="p-button-raised w-full" label="Login" (click)="login()"></button>
+            </div>
+        </p-card>
+    </div>
+</div>
