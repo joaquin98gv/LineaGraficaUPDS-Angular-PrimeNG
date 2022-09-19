@@ -22,7 +22,10 @@ body {
       color: #fff;
     }
     
-    label span{
+    .label {
+      background-color: #333 !important;
+    }
+    .label span{
       background: #fff !important;
     }
   

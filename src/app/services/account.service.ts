@@ -14,4 +14,19 @@ export class AccountService {
     let ans: any = await this.mainS.requestPost(`${environment.endPoint}Funcionarios`);
     return ans;
   }
+
+  async verificarCredencial(credenciales: any){
+    let ans: any = await this.mainS.requestPost(`${environment.endPointAccess}Accesos/VerificarCredencial`, credenciales);
+    return ans;
+  }
+
+  async logIn(objLogin: any){
+    let ans: any = await this.mainS.requestPost(`${environment.endPointAccess}Accesos/Login`, objLogin);
+    return ans;
+  }
+
+  async getDatosBasicos(){
+    let ans: any = await this.mainS.request(`${environment.endPoint}Personas/DatosBasico`);
+    return ans;
+  }
 }

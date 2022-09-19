@@ -9,7 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { RePasswordComponent } from './re-password/re-password.component';
+
+import { RecoveryPasswordComponent } from './recovery-password/recovery-password.component';
 
 import {ButtonModule} from 'primeng/button';
 import {SelectButtonModule} from 'primeng/selectbutton';
@@ -20,12 +21,20 @@ import {PasswordModule} from 'primeng/password';
 import {CheckboxModule} from 'primeng/checkbox';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
+import {ListboxModule} from 'primeng/listbox';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import {CalendarModule} from 'primeng/calendar';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+
+import {ToastModule} from 'primeng/toast';
+
+import { DndModule } from 'src/app/components/dnd/dnd.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RePasswordComponent
+    RecoveryPasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +51,13 @@ import {MessageModule} from 'primeng/message';
     PasswordModule,
     CheckboxModule,
     MessagesModule,
-    MessageModule
+    MessageModule,
+    ListboxModule,
+    ProgressSpinnerModule,
+    DndModule,
+    CalendarModule,
+    InputTextareaModule,
+    ToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]

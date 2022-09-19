@@ -15,7 +15,7 @@ export class SideBarComponent implements OnInit {
   @Output() cambiarModoEvent: EventEmitter<void> = new EventEmitter<void>()
   theme = 'light-indigo';
 
-  funcionario: any = {};
+  persona: any = {};
 
   modeOptions = [
     { value: 'light-indigo', icon: 'pi pi-sun', justify: 'Center' },
@@ -23,9 +23,7 @@ export class SideBarComponent implements OnInit {
   ];
 
   constructor(private router: Router, private mainS: MainService, private themeService: ThemeService) {
-    // this.getPerfil().then((resp: any) => {
-    //   if(resp == "error") this.logOut();
-    // });
+    this.persona = mainS.persona;
   }
 
   ngOnInit(): void {
@@ -46,13 +44,6 @@ export class SideBarComponent implements OnInit {
 
   cambiarModo(){
     this.themeService.switchTheme(this.theme);
-  }
-
-  async getPerfil() {
-    let response: any = await this.mainS.getPerfil();
-    
-    this.funcionario = response;
-    return response;
   }
 
 }

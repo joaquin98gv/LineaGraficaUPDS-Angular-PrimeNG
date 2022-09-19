@@ -1,7 +1,11 @@
 export const environment = {
   production: true,
-  endPoint: "https://localhost:44321/",
-  urlLogin: 'https://portal.upds.edu.bo/web/SAADS/DEV/Acceso/Login/SAADS-WEB?returnUrlLogin=http://localhost:4200/%23/login?token=',
-  urlAccess: 'http://172.16.248.33:8300/acceso/api/',
-  urlFile: 'https://portal.upds.edu.bo/gapi/upload/uploadasynccontainer/fotografia-rn-2022'
+  endPointAccess: "https://portal.upds.edu.bo/gapi/request/service/?path=access/api/",
+  endPointPagos: "https://portal.upds.edu.bo/gapi/request/service/?path=PagosPortal/",
+  endPointTransferenciaExt: "https://portal.upds.edu.bo/gapi/request/service/?path=TransferenciaExterna/",
+  endPoint: "https://portal.upds.edu.bo/gapi/request/service/?path=Portalnet/api/",
+  urlLogin: 'https://portal.upds.edu.bo/web/SAADS/PRO/Acceso/Login/SAADS-WEB?returnUrlLogin=https://portal.sficollege.com/%23/login?token=',
+  urlFile: 'https://portal.upds.edu.bo/gapi/upload/uploadasynccontainer/linea-grafica-angular',
+  paypalApi: 'https://api-m.paypal.com',
+  and: '%26'
 };

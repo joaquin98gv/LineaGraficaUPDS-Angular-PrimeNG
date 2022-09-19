@@ -2,9 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { DndComponent } from './dnd.component';
-
-import { MatButtonModule } from '@angular/material/button';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
+import {ButtonModule} from 'primeng/button';
+import {ProgressBarModule} from 'primeng/progressbar';
 
 import { DndDirective } from './dnd.directive';
 
@@ -17,8 +16,8 @@ import { DndDirective } from './dnd.directive';
   ],
   imports: [
     CommonModule,
-    MatProgressBarModule,
-    MatButtonModule,
+    ButtonModule,
+    ProgressBarModule
   ],
   exports: [
     DndComponent,

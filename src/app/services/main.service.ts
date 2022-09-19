@@ -1,30 +1,37 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-// import { ToastrService } from 'ngx-toastr';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router'
 
 @Injectable({
   providedIn: 'root'
 })
 export class MainService {
-  // toggle menu
-  toggle: Subject<boolean> = new Subject<boolean>();
+
+  toggle: BehaviorSubject<boolean> = new BehaviorSubject(true);
+  xporcentaje: BehaviorSubject<number> = new BehaviorSubject(0);
+
   // modo oscuro
   modoOscuro: Subject<boolean> = new Subject<boolean>();
   darkClassName = 'dark-theme';
   //Permisos
   public interfaces = [];
+  public persona: any = {};
+
+  inscripcionSeleccionada: BehaviorSubject<any> = new BehaviorSubject(0);
 
   cad: Subject<string> = new Subject<string>();
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     // this.toastr.success('Hello world!', 'Toastr fun!');
   }
 
   public getCabecera() {
     const headers = new HttpHeaders()
       .append('Authorization',
-        'Bearer ' + (localStorage.getItem('Authorization') == null ? '' : localStorage.getItem('Authorization')));
+        'Bearer ' + (localStorage.getItem('Authorization') == null ? '' : localStorage.getItem('Authorization')))
+      .append('api-key', '5SJE8rmwaw4rKz')
+      .append('Content-Type', 'application/json');
     return headers;
   }
 
@@ -38,7 +45,11 @@ export class MainService {
           console.log(response);
           resolve(response.body);
         },
-        error: (err) => reject(err.message)
+        error: (err) => {
+          if(err.status == 401 || err.status == 403)
+            this.logOut();
+          reject(err);
+        }
       })
     });
     return ans;
@@ -53,14 +64,47 @@ export class MainService {
           console.log(response);
           resolve(response.body);
         },
-        error: (err) => reject(err.message)
+        error: (err) => {
+          if(err.status == 401 || err.status == 403)
+            this.logOut();
+          reject(err);
+        }
       })
     });
     return ans;
   }
 
-  async getPerfil() {
-    let ans: any = await this.request(`${environment.urlAccess}Funcionarios`);
-    return ans;
+  subirFoto(archivo: File) {
+    this.xporcentaje.next(0);
+    return new Promise((resolve, reject) => {
+      let formData = new FormData();
+      let xhr = new XMLHttpRequest();
+      formData.append('files', archivo, archivo.name);
+
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            console.log('Imagen subida');
+            resolve(JSON.parse(xhr.response));
+          } else {
+            console.log('Fallo la solictud');
+            reject(JSON.parse(xhr.response));
+          }
+        }
+      };
+      let url = environment.urlFile;
+      xhr.open('POST', url, true);
+      xhr.upload.onprogress = (e) => {
+        var percentComplete = Math.ceil((e.loaded / e.total) * 100);
+        this.xporcentaje.next(percentComplete);
+      };
+      // xhr.setRequestHeader('Authorization', 'Bearer ' + (localStorage.getItem('Authorization') == null ? '' : localStorage.getItem('Authorization')));
+      xhr.send(formData);
+    });
+  }
+
+  logOut(){
+    localStorage.removeItem('Authorization');
+    this.router.navigateByUrl('/login');
   }
 }

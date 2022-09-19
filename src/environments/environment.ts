@@ -4,10 +4,14 @@
 
 export const environment = {
   production: false,
-  endPoint: "https://localhost:44321/",
+  endPointAccess: "http://172.16.248.33:8300/access/api/",
+  endPointPagos: "http://172.16.248.33:8300/PagosPortal/",
+  endPointTransferenciaExt: "http://172.16.248.33:8300/TransferenciaExterna/",
+  endPoint: "http://172.16.248.33:8300/Portal/api/",
   urlLogin: 'https://portal.upds.edu.bo/web/SAADS/DEV/Acceso/Login/SAADS-WEB?returnUrlLogin=http://localhost:4200/%23/login?token=',
-  urlAccess: 'http://172.16.248.33:8300/acceso/api/',
-  urlFile: 'https://portal.upds.edu.bo/gapi/upload/uploadasynccontainer/fotografia-rn-2022'
+  urlFile: 'https://portal.upds.edu.bo/gapi/upload/uploadasynccontainer/linea-grafica-angular',
+  paypalApi: 'https://api-m.sandbox.paypal.com',
+  and: '&'
 };
 
 /*

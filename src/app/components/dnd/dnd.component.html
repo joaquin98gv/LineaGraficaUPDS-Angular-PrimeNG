@@ -5,12 +5,14 @@
 	
 		<img [src]="uri"*ngIf="uri != ''" class="img">
 	
-		<h3>Arrastra y suelta su {{nameFile}} aquí</h3>
+		<h3>Drag and drop your {{nameFile}} here</h3>
 		<h3>o</h3>
-		<button mat-raised-button color="warn" for="fileDropRef" class="full-width btn-browse">Búscalo en tus archivos</button>
+		<button pButton pRipple type="button" label="Search for it in your files" for="fileDropRef" 
+		class="p-button p-button-rounded p-button-danger w-full"></button>
 	</div>
 	<ng-template #spinner>
 		<p class="text-center"> {{ porcentajeProgreso }} %</p>
-		<mat-progress-bar style="height: 6px; border-radius: 5px;" mode="determinate" [value]="porcentajeProgreso"></mat-progress-bar>
+		<!-- <p-progressSpinner></p-progressSpinner> -->
+		<p-progressBar [value]="porcentajeProgreso"></p-progressBar>
 	</ng-template>
 </div>
