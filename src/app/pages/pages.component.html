@@ -1,4 +1,4 @@
-<div *ngIf="appReady">
+<div *ngIf="appReady else skelet">
     <div class="wrapper app-background" [ngClass]="{'dark-theme': modoOscuro}">
         <nav id="sidebar" [ngClass]="{'active': !toggle}">
             <app-side-bar [menus]="menus" (aplicarCambios)="toggle = true"></app-side-bar>
@@ -6,7 +6,7 @@
       
         <!-- Page Content  -->
         <div class="content app-background" [ngClass]="{'active': toggle}">
-            <label class="label" for="check">
+            <label class="label" for="check" style="z-index: 99;">
                 <input type="checkbox" id="check" [(ngModel)]="toggle" /> 
                 <span></span>
                 <span></span>
@@ -19,3 +19,9 @@
         </div>
       </div>
 </div>
+
+<ng-template #skelet>
+    <div class="w-full text-center" style="padding-top: 300px;">
+        <p-progressSpinner></p-progressSpinner>
+    </div>
+</ng-template>

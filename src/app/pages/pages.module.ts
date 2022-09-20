@@ -12,8 +12,6 @@ import { SideBarComponent } from '../components/shared/side-bar/side-bar.compone
 import {ButtonModule} from 'primeng/button';
 import {SelectButtonModule} from 'primeng/selectbutton';
 import { HomeComponent } from './home/home.component';
-import { ButtonComponent } from './../components/button/button.component';
-import { InputComponent } from './../components/input/input.component';
 
 import {DividerModule} from 'primeng/divider';
 import {CardModule} from 'primeng/card';
@@ -22,6 +20,23 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import {CalendarModule} from 'primeng/calendar';
 import {InputNumberModule} from 'primeng/inputnumber';
+import {DynamicDialogModule} from 'primeng/dynamicdialog';
+import {TableModule} from 'primeng/table';
+import {ProgressBarModule} from 'primeng/progressbar';
+import {DialogModule} from 'primeng/dialog';
+import {SkeletonModule} from 'primeng/skeleton';
+import {PanelMenuModule} from 'primeng/panelmenu';
+import {AccordionModule} from 'primeng/accordion';
+import {DropdownModule} from 'primeng/dropdown';
+import { PanelModule } from 'primeng/panel';
+import { MenuModule } from 'primeng/menu';
+import {ListboxModule} from 'primeng/listbox';
+import {ToastModule} from 'primeng/toast';
+import {MessageModule} from 'primeng/message';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import {SplitButtonModule} from 'primeng/splitbutton';
+
+import { DndModule } from 'src/app/components/dnd/dnd.module';
 
 
 @NgModule({
@@ -29,8 +44,6 @@ import {InputNumberModule} from 'primeng/inputnumber';
     PagesComponent,
     SideBarComponent,
     HomeComponent,
-    ButtonComponent,
-    InputComponent
   ],
   imports: [
     CommonModule,
@@ -46,7 +59,23 @@ import {InputNumberModule} from 'primeng/inputnumber';
     InputTextareaModule,
     AutoCompleteModule,
     CalendarModule,
-    InputNumberModule
+    InputNumberModule,
+    DynamicDialogModule,
+    TableModule,
+    ProgressBarModule,
+    SkeletonModule,
+    DialogModule,
+    PanelMenuModule,
+    AccordionModule,
+    DropdownModule,
+    PanelModule,
+    MenuModule,
+    ListboxModule,
+    ToastModule,
+    MessageModule,
+    ProgressSpinnerModule,
+    DndModule,
+    SplitButtonModule
   ]
 })
 export class PagesModule { }

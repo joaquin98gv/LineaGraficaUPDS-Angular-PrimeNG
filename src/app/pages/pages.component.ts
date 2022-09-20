@@ -16,11 +16,11 @@ export class PagesComponent implements OnInit {
 
   appReady = false;
   menus: any[] = [
-    {ubicacion: 'home', titulo: 'Home', icono: 'pi-home', external: false},
-    {ubicacion: 'history', titulo: 'Historical Reg.', icono: 'pi-calendar', external: false},
-    {ubicacion: 'pay', titulo: 'Payments', icono: 'pi-dollar', external: false},
-    {ubicacion: 'register', titulo: 'Register', icono: 'pi-book', external: false},
-    {ubicacion: 'https://portal.upds.edu.bo/ev-docente/#/loginms', titulo: 'Teacher Eval.', icono: 'pi-sliders-h', external: true},
+    {ubicacion: 'home', titulo: 'Inicio', icono: 'pi-home', external: false},
+    // {ubicacion: 'history', titulo: 'Historical Reg.', icono: 'pi-calendar', external: false},
+    // {ubicacion: 'pay', titulo: 'Payments', icono: 'pi-dollar', external: false},
+    // {ubicacion: 'register', titulo: 'Register', icono: 'pi-book', external: false},
+    // {ubicacion: 'https://portal.upds.edu.bo/ev-docente/#/loginms', titulo: 'Teacher Eval.', icono: 'pi-sliders-h', external: true},
   ];
   
   constructor(private mainS: MainService, private accountS: AccountService) { 

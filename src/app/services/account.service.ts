@@ -11,7 +11,7 @@ export class AccountService {
   constructor(private mainS:  MainService) { }
 
   async sendCodeRememberPassForMail(userName: string, random: number) {
-    let ans: any = await this.mainS.requestPost(`${environment.endPoint}Funcionarios`);
+    let ans: any = await this.mainS.requestPost(`${environment.endPointPortal}Funcionarios`);
     return ans;
   }
 
@@ -26,7 +26,7 @@ export class AccountService {
   }
 
   async getDatosBasicos(){
-    let ans: any = await this.mainS.request(`${environment.endPoint}Personas/DatosBasico`);
+    let ans: any = await this.mainS.request(`${environment.endPointPortal}Personas/DatosBasico`);
     return ans;
   }
 }
