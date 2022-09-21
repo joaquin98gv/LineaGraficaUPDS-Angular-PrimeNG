@@ -46,6 +46,9 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  /**
+   * Recupera las credenciales del usuario 
+   */
   ngOnInit(): void {
     if(localStorage.getItem('credenciales') != null && localStorage.getItem('credenciales') != ''){
       let user: any = JSON.parse(localStorage.getItem('credenciales')??'');
@@ -55,6 +58,10 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  /**
+   * Verifica las credenciales del usuario
+   * @param form
+   */
   verificarCredencial(){
     if(this.remember){
       localStorage.setItem('credenciales', JSON.stringify(this.user));
@@ -93,6 +100,9 @@ export class LoginComponent implements OnInit {
     return "";
   }
 
+  /**
+   * Selecciona la sede del usuario
+  */
   selectSede(sede: any){
     this.cargandoData = true;
     this.objLogin.sedeId = sede.value.id;
