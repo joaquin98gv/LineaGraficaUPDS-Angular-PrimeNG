@@ -30,3 +30,16 @@
     --danger-color-text-button-focus: rgba(var(--var-danger), 0.12);
     --danger-color-text-button-active: rgba(var(--var-danger), 0.16);
 }
+
+.nav-mobile {
+    ul, a {
+        background: none !important;
+    }
+    .p-tabmenuitem	{
+        flex: 1 1;
+        text-align: center;
+        span, i {
+            margin: auto;
+        }
+    }
+} 

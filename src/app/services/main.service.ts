@@ -9,7 +9,7 @@ import { Router } from '@angular/router'
 })
 export class MainService {
 
-  toggle: BehaviorSubject<boolean> = new BehaviorSubject(true);
+  toggle: BehaviorSubject<boolean> = new BehaviorSubject(false);
   xporcentaje: BehaviorSubject<number> = new BehaviorSubject(0);
 
   // modo oscuro

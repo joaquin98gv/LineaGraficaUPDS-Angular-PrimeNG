@@ -33,7 +33,7 @@
 ----------------------------------------------------- */
 @media (max-width: 768px) {
   .container {
-      padding: 40px 10px 30px 10px;
+      padding: 0px 10px 30px 10px;
   }
   .active .label {
     left: calc(100vw - 100px);
@@ -96,4 +96,31 @@
    width:50%;
    transform: translate(30px,-11px) rotatez(45deg);
  
+ }
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.perfil-foto {
+  margin-right: 20px;
+  float: right;
+  margin-top: 12px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+
+
+
+
+
+ .p-tabmenuitem	{
+  flex: 1 1 !important;
  }

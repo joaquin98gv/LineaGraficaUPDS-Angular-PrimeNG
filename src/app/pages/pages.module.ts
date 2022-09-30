@@ -35,8 +35,10 @@ import {ToastModule} from 'primeng/toast';
 import {MessageModule} from 'primeng/message';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {SplitButtonModule} from 'primeng/splitbutton';
+import {TabMenuModule} from 'primeng/tabmenu';
 
 import { DndModule } from 'src/app/components/dnd/dnd.module';
+import { Screen2Component } from './screen2/screen2.component';
 
 
 @NgModule({
@@ -44,6 +46,7 @@ import { DndModule } from 'src/app/components/dnd/dnd.module';
     PagesComponent,
     SideBarComponent,
     HomeComponent,
+    Screen2Component,
   ],
   imports: [
     CommonModule,
@@ -75,7 +78,8 @@ import { DndModule } from 'src/app/components/dnd/dnd.module';
     MessageModule,
     ProgressSpinnerModule,
     DndModule,
-    SplitButtonModule
+    SplitButtonModule,
+    TabMenuModule,
   ]
 })
 export class PagesModule { }
